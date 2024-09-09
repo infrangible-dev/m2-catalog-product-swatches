@@ -1,0 +1,34 @@
+{
+    "require": [
+        "webserver_php_magento-module-demo.json",
+        "database_magento2-module-demo.json",
+        "elasticsearch_magento-module-demo.json",
+        "mailcatcher_magento.json",
+        "magento2-module-demo.json"
+    ],
+    "global": {
+        "systemName": "infrangible_m2_catalog_product_swatches"
+    },
+    "ws": {
+        "webServerType": "apache_php",
+        "webServerVersion": "2.4",
+        "phpVersion": "8.2",
+        "containerVolumes": [
+            "../src:/var/www/magento/htdocs/app/code/Infrangible/CatalogProductSwatches:www-data"
+        ]
+    },
+    "db": {
+        "databaseType": "mysql",
+        "databaseVersion": "5.7"
+    },
+    "es": {
+        "elasticsearchVersion": "7.9"
+    },
+    "mc": {
+        "mailCatcherVersion": "0.6"
+    },
+    "ms": {
+        "magentoVersion": "2.4.6-p3",
+        "magentoEdition": "community"
+    }
+}

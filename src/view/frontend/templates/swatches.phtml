@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @author      Andreas Knollmann
+ * @copyright   2014-2024 Softwareentwicklung Andreas Knollmann
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
+
+use Infrangible\CatalogProductSwatches\Block\Swatches;
+
+/** @var Swatches $block */
+?>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-options]": {
+            "catalogProductSwatches": {
+                "index": <?= /* @noEscape */ $block->getIndex(); ?>,
+                "attributesData": <?= /* @noEscape */ $block->getAttributesData(); ?>
+            }
+        }
+    }
+</script>
