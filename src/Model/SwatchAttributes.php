@@ -79,7 +79,8 @@ class SwatchAttributes
         Product $product,
         string $attributeCode,
         string $selector,
-        string $templateId
+        string $templateId,
+        string $multiAttributeValueSeparator = ', '
     ): void {
         try {
             $attribute = $this->attributeHelper->getAttribute(
@@ -153,7 +154,7 @@ class SwatchAttributes
                             }
 
                             $attributeValue = implode(
-                                ', ',
+                                $multiAttributeValueSeparator,
                                 $optionValues
                             );
                         }
