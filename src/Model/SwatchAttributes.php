@@ -101,7 +101,10 @@ class SwatchAttributes
             $typeInstance = $product->getTypeInstance();
 
             if ($typeInstance instanceof Configurable) {
-                $allProducts = $typeInstance->getUsedProducts($product, [$attributeCode]);
+                $allProducts = $typeInstance->getUsedProducts(
+                    $product,
+                    [$attributeCode]
+                );
 
                 /** @var Product $childProduct */
                 foreach ($allProducts as $childProduct) {
@@ -110,7 +113,7 @@ class SwatchAttributes
 
                         $attributeValue = $childProduct->getData($attributeCode);
 
-                        if ($attribute->usesSource()) {
+                        if ($attributeValue && $attribute->usesSource()) {
                             $source = $attribute->getSource();
 
                             $source->setAttribute($attribute);
@@ -120,29 +123,39 @@ class SwatchAttributes
                                 $storeId
                             );
 
-                            $optionValue = null;
+                            $attributeValues = $attribute->getFrontendInput() === 'multiselect' ? explode(
+                                ',',
+                                $attributeValue
+                            ) : [$attributeValue];
 
-                            foreach ($source->getAllOptions() as $option) {
-                                if (array_key_exists(
-                                        'label',
-                                        $option
-                                    ) && array_key_exists(
-                                        'value',
-                                        $option
-                                    )) {
+                            $optionValues = [];
 
-                                    if (strcasecmp(
-                                            strval($option[ 'value' ]),
-                                            strval($attributeValue)
-                                        ) === 0) {
+                            foreach ($attributeValues as $attributeValue) {
+                                foreach ($source->getAllOptions() as $option) {
+                                    if (array_key_exists(
+                                            'label',
+                                            $option
+                                        ) && array_key_exists(
+                                            'value',
+                                            $option
+                                        )) {
 
-                                        $optionValue = $option[ 'label' ];
-                                        break;
+                                        if (strcasecmp(
+                                                strval($option[ 'value' ]),
+                                                strval($attributeValue)
+                                            ) === 0) {
+
+                                            $optionValues[] = $option[ 'label' ];
+                                            break;
+                                        }
                                     }
                                 }
                             }
 
-                            $attributeValue = $optionValue;
+                            $attributeValue = implode(
+                                ', ',
+                                $optionValues
+                            );
                         }
 
                         $swatchAttribute->addValue(
