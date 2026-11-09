@@ -1,0 +1,18 @@
+{
+    "require": [
+        "{{{infrangible}}}/infrangible.json",
+        "{{{magento}}}/community/2.4.8-p3.json",
+        "{{{magento}}}/webserver/nginx/1.28.json",
+        "{{{magento}}}/fpm/8.4.json",
+        "{{{magento}}}/cli/8.4.json",
+        "{{{magento}}}/database/mariadb/11.4.json",
+        "{{{magento}}}/cache/valkey/8.1.json",
+        "{{{magento}}}/search/opensearch/3.4.json",
+        "{{{magento}}}/queue/rabbitmq/4.1.json",
+        "{{{fewedev}}}/mail/mailcatcher/0.6.json"
+    ],
+    "global": {
+        "systemName": "infrangible_m2_catalog_product_swatches",
+        "moduleFeatureName": "CatalogProductSwatches"
+    }
+}

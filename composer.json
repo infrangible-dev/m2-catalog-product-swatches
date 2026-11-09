@@ -2,7 +2,7 @@
     "name": "infrangible/m2-catalog-product-swatches",
     "description": "Infrangible Magento 2 Catalog Product Swatches",
     "type": "magento2-module",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "license": "MIT",
     "keywords": [
         "Magento"
@@ -19,7 +19,7 @@
     "require": {
         "php": ">=7.1",
         "magento/framework": "~101.0.0|~102.0.0|~103.0.0",
-        "infrangible/m2-foundation": "~2.0"
+        "infrangible/m2-foundation": "~2.2.0"
     },
     "autoload": {
         "files": [
