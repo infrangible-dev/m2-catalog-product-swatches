@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Run in the cli container of the Anodosys system:
+ *   cd /var/www/magento && vendor/bin/phpunit -c /var/www/module/phpunit.xml
+ *
+ * In another Magento installation, set MAGENTO_ROOT, for example: MAGENTO_ROOT=/path/to/magento vendor/bin/phpunit
+ * The bootstrap of Magento's unit tests generates factories (for example CurlFactory) for mocking.
+ * Works with PHPUnit 9.5 (Magento 2.4.6) and 10.5 (Magento 2.4.7+).
+-->
+<phpunit bootstrap="phpunit.bootstrap.php"
+         cacheResult="false"
+         colors="true"
+         failOnRisky="true"
+         failOnWarning="true">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>src/Test/Unit</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <ini name="date.timezone" value="UTC"/>
+        <ini name="error_reporting" value="-1"/>
+    </php>
+</phpunit>

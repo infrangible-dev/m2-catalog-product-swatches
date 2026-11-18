@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Types of Magento's escaper as Magento 2.4.9 (magento/framework 103.0.9) declares them, used by phpstan.versions.php
+ * with older versions: they declare string|array as result, also for a string, which no string parameter accepts.
+ */
+
+namespace Magento\Framework;
+
+class Escaper
+{
+    /**
+     * @param string|int|float|\Stringable|array<string|int|float|\Stringable> $data
+     * @param array<int, string>|null $allowedTags
+     *
+     * @return ($data is array ? string[] : string)
+     */
+    public function escapeHtml($data, $allowedTags = null)
+    {
+    }
+}
