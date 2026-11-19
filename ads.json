@@ -11,6 +11,11 @@
         "{{{magento}}}/queue/rabbitmq/4.1.json",
         "{{{fewedev}}}/mail/mailcatcher/0.6.json"
     ],
+    "extensions": {
+        "fewedev": "^1.0",
+        "magento": "^1.0",
+        "infrangible": "^1.0"
+    },
     "global": {
         "systemName": "infrangible_m2_catalog_product_swatches",
         "moduleFeatureName": "CatalogProductSwatches"
