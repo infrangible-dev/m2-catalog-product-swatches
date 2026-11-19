@@ -31,7 +31,7 @@ $swatchAttributes->addAttribute(
   (or null) and the selected option IDs by attribute ID.
 
 The Hyvä theme needs
-[Infrangible Catalog Product Swatches Hyvä](https://github.com/infrangible-dev/m2-catalog-product-swatches-hyva).
+[Infrangible Catalog Product Swatches Hyvä](https://www.infrangible.dev/modules/catalog-product-swatches-hyva).
 
 ## Requirements
 
