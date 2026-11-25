@@ -1,11 +1,15 @@
 {
     "name": "infrangible/m2-catalog-product-swatches",
-    "description": "Infrangible Magento 2 Catalog Product Swatches",
+    "description": "Groundwork for other Infrangible modules: shows variant-specific product information on configurable product pages as soon as the shopper selects a variant.",
     "type": "magento2-module",
     "version": "2.0.0",
     "license": "MIT",
     "keywords": [
-        "Magento"
+        "Magento",
+        "Magento 2",
+        "Adobe Commerce",
+        "Catalog",
+        "Hyvä"
     ],
     "homepage": "https://www.infrangible.dev/modules/catalog-product-swatches",
     "authors": [
