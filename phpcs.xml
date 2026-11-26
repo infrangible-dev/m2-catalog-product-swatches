@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="Infrangible">
-    <description>Magento 2 coding standard and PHP 8.2+ compatibility for Infrangible modules</description>
+    <description>Magento 2 coding standard and PHP 8.1+ compatibility for Infrangible modules</description>
 
     <file>src</file>
 
@@ -15,5 +15,5 @@
     </rule>
 
     <rule ref="PHPCompatibility"/>
-    <config name="testVersion" value="8.2-"/>
+    <config name="testVersion" value="8.1-"/>
 </ruleset>

@@ -20,10 +20,10 @@ define([
         options: globalOptions,
         attributes: {},
 
-        _init: function initCatalogProductSwatches() {
-            const self = this;
-            const mutationObserver = this.getMutationObserver();
-            const attributes = this.attributes;
+        _init: function () {
+            const self = this,
+                mutationObserver = this.getMutationObserver(),
+                attributes = this.attributes;
 
             $(this.element).on('swatch.initialized', function () {
                 $(this).find('.swatch-attribute[data-attribute-code][data-attribute-id]').each(function () {
@@ -38,16 +38,16 @@ define([
             });
         },
 
-        _create: function createCatalogProductSwatches() {
+        _create: function () {
         },
 
-        getMutationObserver: function getMutationObserver() {
-            const self = this;
-            const selectedAttributeOptionIds = this.attributes;
+        getMutationObserver: function () {
+            const self = this,
+                selectedAttributeOptionIds = this.attributes;
 
-            return new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.type === "attributes") {
+            return new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (mutation.type === 'attributes') {
                         const attributeNode = $(mutation.target);
 
                         selectedAttributeOptionIds[attributeNode.data('attribute-id')] =
@@ -60,17 +60,17 @@ define([
             });
         },
 
-        processAttributeSelection: function processAttributeSelection() {
-            const index = this.options.index;
-            const attributesData = this.options.attributesData;
-            const selectedAttributeOptionIds = this.attributes;
+        processAttributeSelection: function () {
+            const index = this.options.index,
+                attributesData = this.options.attributesData,
+                selectedAttributeOptionIds = this.attributes;
             let selectedProductId = null;
 
-            $.each(index, function(productId, attributeValues) {
+            $.each(index, function (productId, attributeValues) {
                 let isSelected = true;
 
-                $.each(attributeValues, function(attributeId, optionId) {
-                    isSelected = isSelected && (selectedAttributeOptionIds[attributeId] === optionId);
+                $.each(attributeValues, function (attributeId, optionId) {
+                    isSelected = isSelected && selectedAttributeOptionIds[attributeId] === optionId;
                 });
 
                 if (isSelected) {
@@ -78,11 +78,11 @@ define([
                 }
             });
 
-            $.each(attributesData, function(attributeId, attributeData) {
-                const attributeSelector = attributeData.selector;
-                const attributeTemplateId = attributeData.templateId;
-                const attributeCode = attributeData.attributeCode;
-                const attributeValue = attributeData.values[selectedProductId];
+            $.each(attributesData, function (attributeId, attributeData) {
+                const attributeSelector = attributeData.selector,
+                    attributeTemplateId = attributeData.templateId,
+                    attributeCode = attributeData.attributeCode,
+                    attributeValue = attributeData.values[selectedProductId];
 
                 $(attributeSelector).html(
                     template($('#' + attributeTemplateId).html(), {

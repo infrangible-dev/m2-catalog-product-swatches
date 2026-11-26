@@ -2,7 +2,7 @@
     "name": "infrangible/m2-catalog-product-swatches",
     "description": "Groundwork for other Infrangible modules: shows variant-specific product information on configurable product pages as soon as the shopper selects a variant.",
     "type": "magento2-module",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "license": "MIT",
     "keywords": [
         "Magento",
@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.1",
         "fewedev/base": "~2.4.1",
         "infrangible/m2-core": "~5.0.4",
         "infrangible/m2-foundation": "~3.0.1",
